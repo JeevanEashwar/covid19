@@ -17,6 +17,8 @@
 		313B9AF5263A8B7E00BF9F07 /* covid19UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313B9AF4263A8B7E00BF9F07 /* covid19UITests.swift */; };
 		313B9B0A263A90B200BF9F07 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313B9B09263A90B200BF9F07 /* APIManager.swift */; };
 		313B9B13263AB88500BF9F07 /* CovidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313B9B12263AB88500BF9F07 /* CovidData.swift */; };
+		31D1A038263D26AB00D79C66 /* AdditionalModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1A037263D26AB00D79C66 /* AdditionalModels.swift */; };
+		31D1A03D263D276000D79C66 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D1A03C263D276000D79C66 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		313B9AF6263A8B7E00BF9F07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		313B9B09263A90B200BF9F07 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		313B9B12263AB88500BF9F07 /* CovidData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidData.swift; sourceTree = "<group>"; };
+		31D1A037263D26AB00D79C66 /* AdditionalModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalModels.swift; sourceTree = "<group>"; };
+		31D1A03C263D276000D79C66 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +111,7 @@
 				313B9B08263A909100BF9F07 /* Utilities */,
 				313B9AD2263A8B7A00BF9F07 /* AppDelegate.swift */,
 				313B9AD4263A8B7A00BF9F07 /* SceneDelegate.swift */,
-				313B9AD6263A8B7A00BF9F07 /* StateListViewController.swift */,
+				31D1A044263D29E200D79C66 /* Views */,
 				313B9AD8263A8B7A00BF9F07 /* Main.storyboard */,
 				313B9ADB263A8B7E00BF9F07 /* Assets.xcassets */,
 				313B9ADD263A8B7E00BF9F07 /* LaunchScreen.storyboard */,
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				313B9B09263A90B200BF9F07 /* APIManager.swift */,
+				31D1A03C263D276000D79C66 /* DataManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -146,8 +151,17 @@
 			isa = PBXGroup;
 			children = (
 				313B9B12263AB88500BF9F07 /* CovidData.swift */,
+				31D1A037263D26AB00D79C66 /* AdditionalModels.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		31D1A044263D29E200D79C66 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				313B9AD6263A8B7A00BF9F07 /* StateListViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +297,9 @@
 				313B9B0A263A90B200BF9F07 /* APIManager.swift in Sources */,
 				313B9B13263AB88500BF9F07 /* CovidData.swift in Sources */,
 				313B9AD7263A8B7A00BF9F07 /* StateListViewController.swift in Sources */,
+				31D1A03D263D276000D79C66 /* DataManager.swift in Sources */,
 				313B9AD3263A8B7A00BF9F07 /* AppDelegate.swift in Sources */,
+				31D1A038263D26AB00D79C66 /* AdditionalModels.swift in Sources */,
 				313B9AD5263A8B7A00BF9F07 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,7 +476,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = covid19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,6 +485,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -478,7 +496,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = covid19/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,6 +505,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.covid19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

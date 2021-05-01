@@ -19,7 +19,7 @@ class StateListViewController: UIViewController {
         APIManager.shared.GET(url: url, success: CovidData.self, failure: ParseError.self) { (result) in
             switch result {
             case .failure(let error):
-                //TODO: error handling
+                // TODO: error handling
                 print(error.localizedDescription)
             case .success(let covidModel):
                 print(covidModel)
