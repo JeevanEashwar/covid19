@@ -20,31 +20,31 @@ struct CovidData: Codable {
 
 // MARK: - CasesTimeSery
 struct CasesTimeSery: Codable {
-    let dailyconfirmed, dailydeceased, dailyrecovered, date: String
-    let dateymd, totalconfirmed, totaldeceased, totalrecovered: String
+    let dailyconfirmed, dailydeceased, dailyrecovered, date: String?
+    let dateymd, totalconfirmed, totaldeceased, totalrecovered: String?
 }
 
 // MARK: - Statewise
 struct Statewise: Codable {
-    let active, confirmed, deaths, deltaconfirmed: String
-    let deltadeaths, deltarecovered, lastupdatedtime, migratedother: String
-    let recovered, state, statecode, statenotes: String
+    let active, confirmed, deaths, deltaconfirmed: String?
+    let deltadeaths, deltarecovered, lastupdatedtime, migratedother: String?
+    let recovered, state, statecode, statenotes: String?
 }
 
 // MARK: - Tested
 struct Tested: Codable {
-    let aefi, dailyrtpcrsamplescollectedicmrapplication, firstdoseadministered, frontlineworkersvaccinated1Stdose: String
-    let frontlineworkersvaccinated2Nddose, healthcareworkersvaccinated1Stdose, healthcareworkersvaccinated2Nddose, over45Years1Stdose: String
-    let over45Years2Nddose, over60Years1Stdose, over60Years2Nddose, positivecasesfromsamplesreported: String
-    let registrationflwhcw, registrationonline, registrationonspot, samplereportedtoday: String
-    let seconddoseadministered: String
-    let source: String
-    let source2, source3: String
-    let source4: String
-    let testedasof, testsconductedbyprivatelabs, to60YearswithcoMorbidities1Stdose, to60YearswithcoMorbidities2Nddose: String
-    let totaldosesadministered, totalindividualsregistered, totalindividualstested, totalindividualsvaccinated: String
-    let totalpositivecases, totalrtpcrsamplescollectedicmrapplication, totalsamplestested, totalsessionsconducted: String
-    let updatetimestamp: String
+    let aefi, dailyrtpcrsamplescollectedicmrapplication, firstdoseadministered, frontlineworkersvaccinated1Stdose: String?
+    let frontlineworkersvaccinated2Nddose, healthcareworkersvaccinated1Stdose, healthcareworkersvaccinated2Nddose, over45Years1Stdose: String?
+    let over45Years2Nddose, over60Years1Stdose, over60Years2Nddose, positivecasesfromsamplesreported: String?
+    let registrationflwhcw, registrationonline, registrationonspot, samplereportedtoday: String?
+    let seconddoseadministered: String?
+    let source: String?
+    let source2, source3: String?
+    let source4: String?
+    let testedasof, testsconductedbyprivatelabs, to60YearswithcoMorbidities1Stdose, to60YearswithcoMorbidities2Nddose: String?
+    let totaldosesadministered, totalindividualsregistered, totalindividualstested, totalindividualsvaccinated: String?
+    let totalpositivecases, totalrtpcrsamplescollectedicmrapplication, totalsamplestested, totalsessionsconducted: String?
+    let updatetimestamp: String?
 
     enum CodingKeys: String, CodingKey {
         case aefi, dailyrtpcrsamplescollectedicmrapplication, firstdoseadministered

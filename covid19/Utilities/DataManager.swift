@@ -21,7 +21,7 @@ class DataManager {
     ///     - rawResponse: Optional param contains status code and raw response
     ///     - apiServiceError: Optional error object if the API service fails.
     ///     - completion: Escaping closure with Swift.Result as closure parameter
-    func parseResponse<S,F>(_ request: URLRequest, success: S.Type, failure: F.Type, data: Data?, rawResponse: URLResponse?, apiServiceError: Error?, _ completion: @escaping (Result<S, CustomError>) -> Void) where S: Decodable, F: APIData {
+    func parseResponse<S,F>(_ request: URLRequest, success: S.Type, failure: F.Type, data: Data?, rawResponse: URLResponse?, apiServiceError: Error?, _ completion: @escaping (Result<S, ServiceError>) -> Void) where S: Decodable, F: APIData {
         if let url = request.url, shouldPrintAPIsInConsole {
             print("\n------------------------------------------------------------------")
             print("\n------------------------------------------------------------------")
@@ -48,9 +48,9 @@ class DataManager {
             // Error scenarios
             let statusCode = (rawResponse as? HTTPURLResponse)?.statusCode ?? 0
             if let serviceError = apiServiceError {
-                completion(.failure(.apiFailureError(ParseError(statusCode: statusCode, debugMessage: serviceError.localizedDescription))))
+                completion(.failure(.apiFailureError(CustomError(statusCode: statusCode, debugMessage: serviceError.localizedDescription))))
             } else {
-                completion(.failure(.apiFailureError(ParseError(statusCode: statusCode, debugMessage: "Unknown API error"))))
+                completion(.failure(.apiFailureError(CustomError(statusCode: statusCode, debugMessage: "Unknown API error"))))
             }
             return
         }
@@ -75,21 +75,21 @@ class DataManager {
                 let successModel = try JSONDecoder().decode(success, from: dataToDecode)
                 completion(.success(successModel))
             } catch let decodingError {
-                completion(.failure(.parsingError(ParseError(statusCode: -2, debugMessage: decodingError.localizedDescription))))
+                completion(.failure(.parsingError(CustomError(statusCode: -2, debugMessage: decodingError.localizedDescription))))
             }
         } else {
-            completion(.failure(.parsingError(ParseError(statusCode: -3, debugMessage: "No data success"))))
+            completion(.failure(.parsingError(CustomError(statusCode: -3, debugMessage: "No data success"))))
         }
     }
     
     /// Converts swift dictionary to data object using JSONSerialization
     /// - Parameter parameters: Input dictionary to be serialized
-    private func serializeDictionary(_ parameters: [String: Any]) -> (Data?, ParseError?) {
+    private func serializeDictionary(_ parameters: [String: Any]) -> (Data?, CustomError?) {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: .fragmentsAllowed)
             return (jsonData, nil)
         } catch {
-            return (nil, ParseError(statusCode: -1, debugMessage: "JSON Serialization error"))
+            return (nil, CustomError(statusCode: -1, debugMessage: "JSON Serialization error"))
         }
     }
     

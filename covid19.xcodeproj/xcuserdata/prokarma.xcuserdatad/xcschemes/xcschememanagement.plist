@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>covid19Tests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>313B9ACE263A8B7A00BF9F07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>313B9AE4263A8B7E00BF9F07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>313B9AEF263A8B7E00BF9F07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

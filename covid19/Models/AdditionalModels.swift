@@ -19,13 +19,13 @@ public enum HTTPMethod: String {
     case DELETE
 }
 
-public struct ParseError: APIData {
+public struct CustomError: APIData {
     public var statusCode: Int
     public var debugMessage: String
 }
 
-public enum CustomError: Error {
-    case parsingError(_ error: ParseError)
+public enum ServiceError: Error {
+    case parsingError(_ error: CustomError)
     case apiFailureError(_ error: Error)
 }
 
