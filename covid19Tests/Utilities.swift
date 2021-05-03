@@ -26,6 +26,14 @@ class SuccessRootAPIService: RootAPIServiceProtocol {
     
 }
 
+class FailureRootAPIService: RootAPIServiceProtocol {
+    func GET<S, F>(url: URL, headers: [String : String]?, success: S.Type, failure: F.Type, _ completion: @escaping (Result<S, ServiceError>) -> Void) where S : Decodable, F : APIData {
+        let dummyError = CustomError(statusCode: 100, debugMessage: "This is a forced error introduced by FailureRootAPIService")
+        completion(.failure(ServiceError.parsingError(dummyError)))
+    }
+    
+}
+
 class StubGenerator {
     static func getCovidData<T: Decodable>(_ expectedReturnType: T.Type) -> T? {
         let testBundle = Bundle(for: self.self)
