@@ -17,15 +17,15 @@ class StateViewModel {
     }
     
     var activeCases: String {
-        return statewise.active ?? ""
+        return statewise.active?.numberFormat() ?? ""
     }
     
     var recoveredCases: String {
-        return statewise.recovered ?? ""
+        return statewise.recovered?.numberFormat() ?? ""
     }
     
     var deaths: String {
-        return statewise.deaths ?? ""
+        return statewise.deaths?.numberFormat() ?? ""
     }
     
     var stateName: String {

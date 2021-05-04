@@ -16,30 +16,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhX-dc-Cab">
-                                <rect key="frame" x="180.5" y="433" width="53" height="30"/>
-                                <state key="normal" title="Call API"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T9S-Q2-02g">
+                                <rect key="frame" x="0.0" y="143" width="414" height="719"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: api.covid19india.org" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-Bg-WKC">
+                                <rect key="frame" x="244" y="118" width="160" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="W5k-bn-sqx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmY-nZ-nIL">
+                                <rect key="frame" x="334" y="54" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ROM-jX-qem"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="T27-Na-poV"/>
+                                </constraints>
+                                <state key="normal" title="Reload">
+                                    <color key="titleColor" red="1" green="0.35798573842895265" blue="0.71483680988923182" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
-                                    <action selector="callAPI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vZF-5h-qIK"/>
+                                    <action selector="reloadData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olD-66-LUh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COVID-19 INDIA as on :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXk-6Z-HgM">
+                                <rect key="frame" x="20" y="94" width="374" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XhX-dc-Cab" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0u6-JR-dZo"/>
-                            <constraint firstItem="XhX-dc-Cab" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="749-oy-0DC"/>
+                            <constraint firstItem="mw7-Bg-WKC" firstAttribute="top" secondItem="oXk-6Z-HgM" secondAttribute="bottom" constant="10" id="1A2-Fg-8T5"/>
+                            <constraint firstItem="oXk-6Z-HgM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4ux-Ri-pOt"/>
+                            <constraint firstItem="T9S-Q2-02g" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ADd-2h-CSV"/>
+                            <constraint firstItem="T9S-Q2-02g" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Civ-q8-KCk"/>
+                            <constraint firstItem="YmY-nZ-nIL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="HNa-qV-h7u"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oXk-6Z-HgM" secondAttribute="trailing" constant="20" id="RBP-mU-VyE"/>
+                            <constraint firstItem="mw7-Bg-WKC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="Sec-Fi-Khx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mw7-Bg-WKC" secondAttribute="trailing" constant="10" id="Z9Z-c7-0ar"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YmY-nZ-nIL" secondAttribute="trailing" constant="20" id="bi1-Wn-0We"/>
+                            <constraint firstItem="YmY-nZ-nIL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="puB-7d-4cf"/>
+                            <constraint firstItem="oXk-6Z-HgM" firstAttribute="top" secondItem="YmY-nZ-nIL" secondAttribute="bottom" constant="10" id="r1t-uS-wb9"/>
+                            <constraint firstItem="T9S-Q2-02g" firstAttribute="top" secondItem="mw7-Bg-WKC" secondAttribute="bottom" constant="10" id="t7i-CZ-j1L"/>
+                            <constraint firstItem="T9S-Q2-02g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uth-Ue-aZy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lastUpdatedDateLabel" destination="oXk-6Z-HgM" id="Dzt-nE-b6D"/>
+                        <outlet property="stateListTableView" destination="T9S-Q2-02g" id="gPJ-jd-0mn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="111"/>
+            <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

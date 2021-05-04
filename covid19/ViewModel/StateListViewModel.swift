@@ -18,9 +18,12 @@ class StateListViewModel {
     var covidDataModel: CovidData?
     var reloadUI: (() -> Void)?
     var handleAPIError: ((_ error: ServiceError) -> Void)?
+    var updateIndicatorView: ((_ flag: Bool) -> Void)?
     
     func getCovidData() {
+        updateIndicatorView?(true)
         apiService.getCovidNumbers { (result) in
+            self.updateIndicatorView?(false)
             switch result {
             case .success(let successModel):
                 self.covidDataModel = successModel
